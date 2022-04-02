@@ -1,3 +1,6 @@
+// The challenge asked to validate the passwords 
+// Passwords are valid when they have at least x amount of repetitions and no more than y repetitions of the given character 
+
 const pwds = [
   "16-18 h: hhhhhhhhhhhhhhhhhh",
   "17-18 d: ddddddddddddddddzn",
@@ -1006,7 +1009,8 @@ const num2 = /(?<=-)\d+/g;
 const cha = /\w(?=:)/g;
 const pass = /(?<=: )\w+/g;
 
-let counter = 0;
+let counter1 = 0;
+let counter2 = 0;
 
 function validate(v) {
   const c = v.match(cha)[0];
@@ -1018,7 +1022,23 @@ function validate(v) {
 
   if (p.match(regex)) {
     if (p.match(regex).length >= n1 && p.match(regex).length <= n2) {
-      counter++;
+      counter1++;
+    }
+  }
+
+  // Second part
+  // Passwords must contain the given character in one of the positions decided by the numbers
+  // The index starts with "1" instead of the usual "0" 
+
+  if (p.match(c)) {
+    let index = p.indexOf(c, n1 - 1);
+    let index2 = p.indexOf(c, n2 - 1);
+
+    if (
+      (index + 1 == n1 && index2 + 1 != n2) ||
+      (index + 1 != n1 && index2 + 1 == n2)
+    ) {
+      counter2++;
     }
   }
 }
@@ -1027,4 +1047,5 @@ for (pwd of pwds) {
   validate(pwd);
 }
 
-console.log(counter);
+console.log(counter1);
+console.log(counter2);
