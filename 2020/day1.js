@@ -1,3 +1,5 @@
+// The challenge is to find two numbers that sum to 2020 and give the product of these numbers
+
 const nums = [
   1348, 1621, 1500, 1818, 1266, 1449, 1880, 1416, 1862, 1665, 1588, 1704, 1922,
   1482, 1679, 1263, 1137, 1045, 1405, 1048, 1619, 1520, 455, 1142, 1415, 1554,
@@ -36,6 +38,7 @@ let n = 0;
 })();
 
 // Part two
+// And now the goal is to find three numbers that sum to 2020 and do the same thing  
 
 let n2 = 0;
 
